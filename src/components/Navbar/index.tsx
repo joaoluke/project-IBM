@@ -1,6 +1,13 @@
 import { LOGO } from '../../config/Images'
+import { useStore } from '../../context/Store'
 
 export const Navbar = () => {
+  const {
+    state: stateGlobal,
+    setState: setStateGlobal,
+    searchBook,
+  } = useStore()
+
   return (
     <nav className='bg-gray-800'>
       <div className='max-w-7xl mx-auto p-4 md:py-0 lg:py-0 md:px-4 lg:px-8'>
@@ -19,7 +26,10 @@ export const Navbar = () => {
               </a>
             </div>
           </div>
-          <form className='w-full md:w-6/12 lg:w-6/12'>
+          <form
+            onSubmit={searchBook(event)}
+            className='w-full md:w-6/12 lg:w-6/12'
+          >
             <div className='relative'>
               <div className='flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none'>
                 <svg
@@ -42,6 +52,13 @@ export const Navbar = () => {
                 id='default-search'
                 className='block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
                 placeholder='Qual livro você quer ler hoje?'
+                value={stateGlobal.valueSearch}
+                onChange={(event) =>
+                  setStateGlobal({
+                    ...stateGlobal,
+                    valueSearch: event.target.value,
+                  })
+                }
                 required
               />
               <button

@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 
-import { Navbar, Carousel } from './components'
-import { Dashboard } from './pages'
+import { Navbar } from './components'
+import { Dashboard, Search } from './pages'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -12,6 +12,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<Dashboard />} />
+        <Route path='/search' element={<Search />} />
       </Routes>
     </div>
   )

@@ -48,7 +48,7 @@ export default () => {
     setLoading(true)
     try {
       const { data } = await API.get(
-        'https://www.googleapis.com/books/v1/volumes?q=livro&maxResults=20&startIndex=21'
+        'volumes?q=livro&maxResults=20&startIndex=21'
       )
       setBooks(data.items)
     } catch (error) {
