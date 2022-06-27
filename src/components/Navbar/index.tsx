@@ -3,8 +3,8 @@ import { LOGO } from '../../config/Images'
 export const Navbar = () => {
   return (
     <nav className='bg-gray-800'>
-      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-        <div className='flex items-center justify-between h-20'>
+      <div className='max-w-7xl mx-auto p-4 md:py-0 lg:py-0 md:px-4 lg:px-8'>
+        <div className='flex flex-col items-center justify-between h-40 md:flex-row md:h-20 lg:flex-row lg:h-20'>
           <div className='flex items-center'>
             <div className='flex-shrink-0'>
               <img className='h-24 w-30' src={LOGO} alt='Workflow' />
@@ -19,7 +19,7 @@ export const Navbar = () => {
               </a>
             </div>
           </div>
-          <form className='w-6/12'>
+          <form className='w-full md:w-6/12 lg:w-6/12'>
             <div className='relative'>
               <div className='flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none'>
                 <svg

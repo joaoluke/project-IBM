@@ -4,7 +4,9 @@ export const Dashboard = () => {
   return (
     <div className='App'>
       <Carousel />
-      <Card />
+      <div className='m-3'>
+        <Card />
+      </div>
     </div>
   )
 }
