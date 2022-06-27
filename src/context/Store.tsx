@@ -6,6 +6,7 @@ import { API } from '../services/connection'
 type StoreType = {
   valueSearch: string
   books: any
+  loading: boolean
 }
 
 type PropsStoreContext = {
@@ -18,6 +19,7 @@ const DEFAULT_VALUE = {
   state: {
     valueSearch: '',
     books: [],
+    loading: false,
   },
   setState: () => {},
   searchBook: () => {},
@@ -30,9 +32,9 @@ const StoreContextProvider = ({ children }: any) => {
 
   const navigate = useNavigate()
 
-  const searchBook = (event: any) => async () => {
-    console.log('searchBook')
+  const searchBook = () => async (event: any) => {
     event.preventDefault()
+    console.log('searchBook')
     try {
       const { data } = await API.get(`volumes?q=${state.valueSearch}`)
       setState({ ...state, books: data })

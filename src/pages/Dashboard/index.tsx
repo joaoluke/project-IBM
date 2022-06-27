@@ -8,7 +8,6 @@ export const Dashboard = () => {
   const {
     getInformation,
     books,
-    loading,
     toggleModal,
     openModalDetails,
     handleInformationModal,
@@ -31,7 +30,6 @@ export const Dashboard = () => {
         details={informationModal}
         handleClose={() => toggleModal(false)}
       />
-      <Loading isLoading={loading} />
       <Carousel />
       <div className='m-3 flex flex-wrap justify-around'>
         {books.map((book: any) => {
