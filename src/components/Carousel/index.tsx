@@ -1,10 +1,8 @@
 import { useState } from 'react'
 
-const bestSellers = [
-  'https://mdbcdn.b-cdn.net/img/new/slides/041.webp',
-  'https://mdbcdn.b-cdn.net/img/new/slides/042.webp',
-  'https://mdbcdn.b-cdn.net/img/new/slides/043.webp',
-]
+import { BANNER1, BANNER2, BANNER3 } from '../../config/Images'
+
+const illustrations = [BANNER1, BANNER2, BANNER3]
 
 export const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -24,7 +22,7 @@ export const Carousel = () => {
       <div className='aspect-w-16 aspect-h-9' />
       <img
         className='rounded-2xl duration-700 ease-in-out'
-        src={bestSellers[currentIndex]}
+        src={illustrations[currentIndex]}
         alt=''
       />
 

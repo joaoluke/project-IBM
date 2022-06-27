@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { Carousel, Card } from '../../components'
+import { Carousel, Card, Loading } from '../../components'
 import { NOT_FOUND } from '../../config/Images'
 import useDashboard from './useDashboard'
 
@@ -11,10 +11,9 @@ export const Dashboard = () => {
     getInformation()
   }, [])
 
-  console.log(books.map((i) => i.volumeInfo.authors))
-
   return (
     <div className='App'>
+      <Loading isLoading={loading} />
       <Carousel />
       <div className='m-3 flex flex-wrap justify-around'>
         {books.map((book: any) => {
