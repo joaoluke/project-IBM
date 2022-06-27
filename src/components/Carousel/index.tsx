@@ -20,7 +20,7 @@ export const Carousel = () => {
   }
 
   return (
-    <div className='m-3  select-none relative'>
+    <div className=' flex justify-center m-3 select-none relative'>
       <div className='aspect-w-16 aspect-h-9' />
       <img
         className='rounded-2xl duration-700 ease-in-out'

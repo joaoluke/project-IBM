@@ -1,21 +1,28 @@
-import axios from 'axios'
+import { useState } from 'react'
 
 import { API } from '../../services/connection'
 
 export default () => {
+  const [books, setBooks] = useState<any>([])
+  const [loading, setLoading] = useState(false)
+
   const getInformation = async () => {
+    setLoading(true)
     try {
       const { data } = await API.get(
-        'https://www.googleapis.com/books/v1/volumes?q=programacao&maxResults=20&startIndex=21'
+        'https://www.googleapis.com/books/v1/volumes?q=tecnologia&maxResults=20&startIndex=21'
       )
-      console.log(data)
-      // setData(response.data)
+      setBooks(data.items)
     } catch (error) {
       console.log(error)
+    } finally {
+      setLoading(false)
     }
   }
 
   return {
     getInformation,
+    books,
+    loading,
   }
 }
