@@ -1,8 +1,6 @@
 import { useState } from 'react'
 
-import { BANNER1, BANNER2, BANNER3 } from '../../config/Images'
-
-const illustrations = [BANNER1, BANNER2, BANNER3]
+import { illustrations } from '../../utils'
 
 export const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -18,7 +16,7 @@ export const Carousel = () => {
   }
 
   return (
-    <div className=' flex justify-center m-3 select-none relative'>
+    <div className='flex justify-center m-3 select-none relative'>
       <div className='aspect-w-16 aspect-h-9' />
       <img
         className='rounded-2xl duration-700 ease-in-out'

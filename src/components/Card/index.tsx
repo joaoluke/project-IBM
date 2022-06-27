@@ -1,8 +1,9 @@
 import { PropsCard } from '../../types'
 
-export const Card = ({ author, title, image }: PropsCard) => {
+export const Card = ({ author, title, image, openModal }: PropsCard) => {
   return (
     <a
+      onClick={openModal}
       href='#'
       className='w-3/5 flex flex-col items-center bg-white m-1 rounded-lg border shadow-md md:flex-row md:w-2/5 hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700'
     >
