@@ -22,6 +22,7 @@
     "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
+    "@testing-library/dom": "^8.14.0",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@types/react-modal": "^3.13.1",

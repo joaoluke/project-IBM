@@ -17,7 +17,7 @@ export const MyLibrary = () => {
 
   return (
     <div className='m-3 flex flex-wrap justify-around'>
-      {books.length &&
+      {books.length ? (
         books.map((book: any) => {
           return (
             <Card
@@ -28,7 +28,12 @@ export const MyLibrary = () => {
               image={book.imageLinks ? book.imageLinks.thumbnail : NOT_FOUND}
             />
           )
-        })}
+        })
+      ) : (
+        <div className='m-40'>
+          <p>Sua lista de favoritos está vazia!</p>
+        </div>
+      )}
     </div>
   )
 }

@@ -20,6 +20,7 @@ const MyLibraryContextProvider = ({ children }: PropsMyLibraryProviders) => {
 
   const setBookInLibrary = (id: string, book: any) => {
     localStorage.setItem(id, JSON.stringify(book))
+    setBookAdded(true)
   }
 
   const getBookInLibrary = (id: string) => {
