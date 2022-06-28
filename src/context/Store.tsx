@@ -17,6 +17,7 @@ interface IInformationModal {
   description: string
   pageCount: number
   yearPublished: string
+  id: string
 }
 interface StoreContextData {
   valueSearch: string
@@ -49,6 +50,7 @@ const informationInitial = {
   description: '',
   pageCount: 0,
   yearPublished: '',
+  id: '',
 }
 
 const StoreContext = createContext({} as StoreContextData)
@@ -89,6 +91,7 @@ const StoreContextProvider = ({ children }: PropsStoreProviders) => {
       description: volumeInfo.description,
       pageCount: volumeInfo.pageCount,
       yearPublished: volumeInfo.publishedDate ? volumeInfo.publishedDate : '',
+      id: information.id,
     })
   }
 

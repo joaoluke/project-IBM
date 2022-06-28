@@ -6,7 +6,7 @@ import { NOT_FOUND } from '../../config/Images'
 import { useStore } from '../../context/Store'
 
 export const Search = () => {
-  const { books, openModal } = useStore()
+  const { books, openModal, openModalDetails } = useStore()
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -18,7 +18,7 @@ export const Search = () => {
       <div className='flex flex-col items-center p-1'>
         <Select />
       </div>
-      <ModalDetails />
+      {openModalDetails && <ModalDetails />}
       <div className='m-3 flex flex-wrap justify-around'>
         {books.items &&
           books.items.map((book: any) => {

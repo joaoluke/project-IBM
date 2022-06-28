@@ -21,13 +21,22 @@ export const Navbar = () => {
               <img className='h-24 w-30' src={LOGO} alt='Workflow' />
             </div>
             <div className='flex items-baseline space-x-4'>
-              <a
-                href='#'
-                className='text-white px-3 py-2 rounded-md text-xl font-medium'
+              <div
+                className='text-white px-3 py-2 rounded-md text-xl font-medium hover:bg-slate-600 transition duration-150'
                 aria-current='page'
+                onClick={() => navigate('/')}
               >
                 BookBook
-              </a>
+              </div>
+            </div>
+            <div className='flex items-baseline space-x-4'>
+              <div
+                className='text-white px-3 py-2 rounded-md text-xl font-medium hover:bg-slate-600 transition duration-150'
+                aria-current='page'
+                onClick={() => navigate('/my-library')}
+              >
+                Minha Estante
+              </div>
             </div>
           </div>
           <form

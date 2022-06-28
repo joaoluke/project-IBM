@@ -7,7 +7,7 @@ import useDashboard from './useDashboard'
 
 export const Dashboard = () => {
   const { getInformation, books } = useDashboard()
-  const { openModal } = useStore()
+  const { openModal, openModalDetails } = useStore()
 
   useEffect(() => {
     getInformation()
@@ -15,7 +15,7 @@ export const Dashboard = () => {
 
   return (
     <div className='App'>
-      <ModalDetails />
+      {openModalDetails && <ModalDetails />}
       <Carousel />
       <div className='m-3 flex flex-wrap justify-around'>
         {books.map((book: any) => {
