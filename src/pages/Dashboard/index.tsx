@@ -2,34 +2,20 @@ import { useEffect } from 'react'
 
 import { Carousel, Card, ModalDetails } from '../../components'
 import { NOT_FOUND } from '../../config/Images'
+import { useStore } from '../../context/Store'
 import useDashboard from './useDashboard'
 
 export const Dashboard = () => {
-  const {
-    getInformation,
-    books,
-    toggleModal,
-    openModalDetails,
-    handleInformationModal,
-    informationModal,
-  } = useDashboard()
+  const { getInformation, books } = useDashboard()
+  const { openModal } = useStore()
 
   useEffect(() => {
     getInformation()
   }, [])
 
-  const openModal = (information: any) => () => {
-    toggleModal(true)
-    handleInformationModal(information)
-  }
-
   return (
     <div className='App'>
-      <ModalDetails
-        isOpen={openModalDetails}
-        details={informationModal}
-        handleClose={() => toggleModal(false)}
-      />
+      <ModalDetails />
       <Carousel />
       <div className='m-3 flex flex-wrap justify-around'>
         {books.map((book: any) => {
@@ -37,7 +23,7 @@ export const Dashboard = () => {
           return (
             <Card
               key={id}
-              openModal={openModal(book)}
+              openModal={() => openModal(book)}
               title={volumeInfo.title}
               author={volumeInfo.authors ? volumeInfo.authors : ''}
               image={

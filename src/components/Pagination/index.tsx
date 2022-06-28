@@ -6,8 +6,6 @@ export const Pagination = () => {
   const { page, numberOfBooksInSearch, totalNumberOfBooks, pagination } =
     useStore()
 
-  console.log(totalNumberOfBooks, numberOfBooksInSearch)
-
   return (
     <PaginationMUI
       count={Math.ceil(totalNumberOfBooks / numberOfBooksInSearch)}

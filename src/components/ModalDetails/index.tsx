@@ -4,19 +4,20 @@ import DialogActions from '@mui/material/DialogActions'
 import DialogContent from '@mui/material/DialogContent'
 import DialogTitle from '@mui/material/DialogTitle'
 
-import { PropsModalDetails } from '../../types'
+import { useStore } from '../../context/Store'
 
-export const ModalDetails = ({
-  isOpen,
-  details,
-  handleClose,
-}: PropsModalDetails) => {
+export const ModalDetails = ({}) => {
+  const { toggleModal, informationModal, openModalDetails } = useStore()
   const { title, authors, image, description, pageCount, yearPublished } =
-    details
+    informationModal
+
+  const handleClose = () => {
+    toggleModal(false)
+  }
 
   return (
     <Dialog
-      open={isOpen}
+      open={openModalDetails}
       onClose={handleClose}
       aria-labelledby='alert-dialog-title'
       aria-describedby='alert-dialog-description'
