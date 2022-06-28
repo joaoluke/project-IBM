@@ -6,12 +6,12 @@ import { Dashboard, Search } from './pages'
 import { useStore } from './context/Store'
 
 function App() {
-  const { state: stateGlobal } = useStore()
+  const { loading } = useStore()
 
   return (
     <div>
       <Navbar />
-      <Loading isLoading={stateGlobal.loading} />
+      <Loading isLoading={loading} />
       <Routes>
         <Route path='/' element={<Dashboard />} />
         <Route path='/search' element={<Search />} />

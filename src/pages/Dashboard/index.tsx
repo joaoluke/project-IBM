@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-import { Carousel, Card, Loading, ModalDetails } from '../../components'
+import { Carousel, Card, ModalDetails } from '../../components'
 import { NOT_FOUND } from '../../config/Images'
 import useDashboard from './useDashboard'
 

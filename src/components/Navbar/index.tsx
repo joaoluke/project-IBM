@@ -1,19 +1,23 @@
+import { useNavigate } from 'react-router-dom'
 import { LOGO } from '../../config/Images'
 import { useStore } from '../../context/Store'
 
 export const Navbar = () => {
   const {
-    state: stateGlobal,
-    setState: setStateGlobal,
+    numberOfBooksInSearch,
     searchBook,
+    valueSearch,
+    changeValueOfSearch,
   } = useStore()
+
+  const navigate = useNavigate()
 
   return (
     <nav className='bg-gray-800'>
       <div className='max-w-7xl mx-auto p-4 md:py-0 lg:py-0 md:px-4 lg:px-8'>
         <div className='flex flex-col items-center justify-between h-40 md:flex-row md:h-20 lg:flex-row lg:h-20'>
-          <div className='flex items-center'>
-            <div className='flex-shrink-0'>
+          <div className='flex items-center cursor-pointer'>
+            <div className='flex-shrink-0' onClick={() => navigate('/')}>
               <img className='h-24 w-30' src={LOGO} alt='Workflow' />
             </div>
             <div className='flex items-baseline space-x-4'>
@@ -27,7 +31,10 @@ export const Navbar = () => {
             </div>
           </div>
           <form
-            onSubmit={searchBook(event)}
+            onSubmit={(event) => {
+              event.preventDefault()
+              searchBook(1, numberOfBooksInSearch, 1)
+            }}
             className='w-full md:w-6/12 lg:w-6/12'
           >
             <div className='relative'>
@@ -52,13 +59,8 @@ export const Navbar = () => {
                 id='default-search'
                 className='block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
                 placeholder='Qual livro você quer ler hoje?'
-                value={stateGlobal.valueSearch}
-                onChange={(event) =>
-                  setStateGlobal({
-                    ...stateGlobal,
-                    valueSearch: event.target.value,
-                  })
-                }
+                value={valueSearch}
+                onChange={(event) => changeValueOfSearch(event.target)}
                 required
               />
               <button

@@ -14,7 +14,7 @@ interface IInformationModal {
 }
 
 export default () => {
-  const { state: stateGlobal, setState: setStateGlobal } = useStore()
+  const { toggleLoading } = useStore()
 
   const [books, setBooks] = useState<any>([])
 
@@ -47,7 +47,7 @@ export default () => {
   }
 
   const getInformation = async () => {
-    setStateGlobal({ ...stateGlobal, loading: true })
+    toggleLoading(false)
     try {
       const { data } = await API.get(
         'volumes?q=livro&maxResults=20&startIndex=21'
@@ -56,7 +56,7 @@ export default () => {
     } catch (error) {
       console.log(error)
     } finally {
-      setStateGlobal({ ...stateGlobal, loading: false })
+      toggleLoading(false)
     }
   }
 
