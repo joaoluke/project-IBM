@@ -15,7 +15,7 @@ type PropsMyLibraryProviders = {
 const MyLibraryContext = createContext({} as MyLibraryContextData)
 
 const MyLibraryContextProvider = ({ children }: PropsMyLibraryProviders) => {
-  const [books, setBooks] = useState([])
+  const [books, setBooks] = useState<any>([])
   const [bookAdded, setBookAdded] = useState(false)
 
   const setBookInLibrary = (id: string, book: any) => {
@@ -33,7 +33,7 @@ const MyLibraryContextProvider = ({ children }: PropsMyLibraryProviders) => {
     let booksStorage = []
     let index = keys.length
     while (index--) {
-      booksStorage.push(JSON.parse(localStorage.getItem(keys[index])))
+      booksStorage.push(JSON.parse(localStorage.getItem(keys[index]) || '{}'))
     }
     setBooks(booksStorage)
   }
