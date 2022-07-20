@@ -1,7 +1,0 @@
-export * from './Navbar'
-export * from './Carousel'
-export * from './Card'
-export * from './Loading'
-export * from './ModalDetails'
-export * from './Pagination'
-export * from './Select'
