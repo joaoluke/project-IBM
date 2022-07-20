@@ -171,8 +171,3 @@ const StoreContextProvider = ({ children }: PropsStoreProviders) => {
   )
 }
 
-export const useStore = () => {
-  return useContext(StoreContext)
-}
-
-export default StoreContextProvider
